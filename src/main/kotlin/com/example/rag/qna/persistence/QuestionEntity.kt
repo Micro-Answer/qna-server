@@ -8,7 +8,7 @@ import java.util.UUID
 @Table(name = "questions")
 class QuestionEntity(
     @Id
-    private var id: UUID,
+    private val id: UUID,
 
     @Column(name = "category", nullable = false)
     var category: List<String>,
@@ -23,7 +23,7 @@ class QuestionEntity(
     var userId: String,
 
     @Column(name = "created_at", nullable = false)
-    var createdAt: LocalDateTime,
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "updated_at")
     var updatedAt: LocalDateTime = createdAt

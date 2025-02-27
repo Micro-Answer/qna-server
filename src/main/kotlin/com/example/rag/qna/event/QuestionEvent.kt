@@ -1,5 +1,6 @@
 package com.example.rag.qna.event
 
+import org.springframework.context.ApplicationEvent
 import java.time.LocalDateTime
 import java.util.*
 
@@ -11,7 +12,7 @@ class QuestionEvent private constructor(
     val userId: String,
     val questionId: UUID = UUID.randomUUID(),
     val eventTimestamp: LocalDateTime = LocalDateTime.now()
-) {
+) : ApplicationEvent(eventType) {
     companion object {
         fun create(title: String, category: List<String>, content: String, userId: String): QuestionEvent {
             return QuestionEvent("created", title, category, content, userId)
