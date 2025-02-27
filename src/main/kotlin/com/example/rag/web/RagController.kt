@@ -39,8 +39,10 @@ class RagController(private val qnaSystem: QnaSystem) {
     }
 
     @PostMapping("/opinions")
-    fun enrollOpinion(@RequestBody request: OpinionRequest): ResponseEntity<String> {
-        TODO()
+    fun enrollOpinion(
+        @RequestParam questionId: UUID,
+        @RequestBody request: OpinionRequest
+    ): ResponseEntity<String> {
         return ResponseEntity.status(HttpStatus.CREATED).body("${request.title} 등록 성공!")
     }
 }
