@@ -1,7 +1,7 @@
 package com.example.rag.web
 
 import com.example.rag.qna.event.QnaSystem
-import com.example.rag.qna.event.QuestionEvent
+import com.example.rag.qna.event.question.QuestionEvent
 import com.example.rag.web.request.OpinionRequest
 import com.example.rag.web.request.QuestionRequest
 import org.springframework.http.HttpStatus

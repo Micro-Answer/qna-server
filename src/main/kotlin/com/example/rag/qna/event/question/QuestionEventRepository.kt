@@ -1,4 +1,4 @@
-package com.example.rag.qna.event
+package com.example.rag.qna.event.question
 
 import org.springframework.data.jpa.repository.JpaRepository
 

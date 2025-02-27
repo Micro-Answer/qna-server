@@ -1,4 +1,4 @@
-package com.example.rag.qna.event
+package com.example.rag.qna.event.question
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

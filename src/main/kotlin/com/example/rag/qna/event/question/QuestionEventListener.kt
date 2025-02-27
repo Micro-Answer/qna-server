@@ -1,4 +1,4 @@
-package com.example.rag.qna.event
+package com.example.rag.qna.event.question
 
 import com.example.rag.qna.persistence.QuestionEntity
 import com.example.rag.qna.persistence.QuestionRepository
