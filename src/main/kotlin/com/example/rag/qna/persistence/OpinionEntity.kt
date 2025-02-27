@@ -11,7 +11,7 @@ class OpinionEntity(
     var id: UUID,
 
     @Column(name = "question_id", nullable = false)
-    var questionId: String,
+    var questionId: UUID,
 
     @Column(name = "title", nullable = false)
     var title: String,
@@ -23,7 +23,7 @@ class OpinionEntity(
     var userId: String,
 
     @Column(name = "created_at", nullable = false)
-    var createdAt: LocalDateTime,
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "updated_at")
     var updatedAt: LocalDateTime = createdAt
