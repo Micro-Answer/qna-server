@@ -1,5 +1,6 @@
 package com.example.rag.web
 
+import com.example.rag.qna.event.QnaSystem
 import com.example.rag.web.request.OpinionRequest
 import com.example.rag.web.request.QuestionRequest
 import org.springframework.http.HttpStatus
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/v1/api/rag")
-class RagController() {
+class RagController(private val qnaSystem: QnaSystem) {
     @PostMapping("/questions")
     fun enrollQuestion(@RequestBody request: QuestionRequest): ResponseEntity<String> {
         TODO()
