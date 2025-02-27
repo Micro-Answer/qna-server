@@ -19,6 +19,16 @@ class RagController(private val qnaSystem: QnaSystem) {
             ResponseEntity.status(HttpStatus.CREATED).body("${request.title} 등록 성공!")
         }
 
+    @PutMapping("/questions/{questionId}")
+    fun updateQuestion(
+        @PathVariable questionId: UUID,
+        @RequestBody request: QuestionRequest
+    ): ResponseEntity<String> =
+        request.run {
+            qnaSystem.recordEvent(QuestionEvent.update(questionId, title, category, content, userId))
+            ResponseEntity.ok("${request.title} 수정 성공!")
+        }
+
     @DeleteMapping("/questions/{questionId}")
     fun deleteQuestion(
         @PathVariable questionId: UUID,
