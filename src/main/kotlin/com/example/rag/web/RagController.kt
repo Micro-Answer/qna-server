@@ -7,6 +7,7 @@ import com.example.rag.web.request.QuestionRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.util.UUID
 
 @RestController
 @RequestMapping("/v1/api/rag")
@@ -17,6 +18,15 @@ class RagController(private val qnaSystem: QnaSystem) {
             qnaSystem.recordEvent(QuestionEvent.create(title, category, content, userId))
             ResponseEntity.status(HttpStatus.CREATED).body("${request.title} 등록 성공!")
         }
+
+    @DeleteMapping("/questions/{questionId}")
+    fun deleteQuestion(
+        @PathVariable questionId: UUID,
+        @RequestParam userId: String
+    ): ResponseEntity<Void> {
+        qnaSystem.recordEvent(QuestionEvent.delete(questionId, userId))
+        return ResponseEntity.noContent().build()
+    }
 
     @PostMapping("/opinions")
     fun enrollOpinion(@RequestBody request: OpinionRequest): ResponseEntity<String> {
