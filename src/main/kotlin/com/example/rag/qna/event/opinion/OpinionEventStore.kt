@@ -14,7 +14,7 @@ class OpinionEventStore(
     val eventType: String,
 
     @Column(name = "question_id", nullable = false)
-    val questionId: String,
+    val questionId: UUID,
 
     @Column(name = "title", nullable = false)
     val title: String,
