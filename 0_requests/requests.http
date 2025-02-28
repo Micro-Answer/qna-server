@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ### 질문 업데이트 요청
-### e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
+### path variable : e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
 PUT http://localhost:8080/v1/api/rag/questions/e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57
 Content-Type: application/json
 
@@ -24,12 +24,12 @@ Content-Type: application/json
 
 
 ### 질문 삭제 요청
-### e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
+### path variable : e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
 DELETE http://localhost:8080/v1/api/rag/questions/e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57?userId=general_user
 
 
 ### 의견 등록 요청
-### e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
+### request param : e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
 POST http://localhost:8080/v1/api/rag/opinions?questionId=e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57
 Content-Type: application/json
 
@@ -41,8 +41,9 @@ Content-Type: application/json
 
 
 ### 의견 업데이트 요청
-### d57a91f9-b5e9-4f85-b441-4e3ac89d5e16는 의견 아이디(UUID)
-PUT http://localhost:8080/v1/api/rag/opinions/d57a91f9-b5e9-4f85-b441-4e3ac89d5e16
+### path variable : d57a91f9-b5e9-4f85-b441-4e3ac89d5e16는 의견 아이디(UUID)
+### request param : e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
+PUT http://localhost:8080/v1/api/rag/opinions/d57a91f9-b5e9-4f85-b441-4e3ac89d5e16?questionId=e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57
 Content-Type: application/json
 
 {
@@ -53,7 +54,9 @@ Content-Type: application/json
 
 
 ### 의견 삭제 요청
-### d57a91f9-b5e9-4f85-b441-4e3ac89d5e16는 의견 아이디(UUID)
-DELETE http://localhost:8080/v1/api/rag/opinions/d57a91f9-b5e9-4f85-b441-4e3ac89d5e16?userId=expert
+### path variable : d57a91f9-b5e9-4f85-b441-4e3ac89d5e16는 의견 아이디(UUID)
+### request param : e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57는 질문 아이디(UUID)
+### request param : expert는 전문가 사용자 아이디(문자열)
+DELETE http://localhost:8080/v1/api/rag/opinions/d57a91f9-b5e9-4f85-b441-4e3ac89d5e16?userId=expert&questionId=e9b1c2a5-7f34-41a9-93a7-2a1f7d9f9d57
 
 
