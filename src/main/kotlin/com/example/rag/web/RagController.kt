@@ -3,6 +3,7 @@ package com.example.rag.web
 import com.example.rag.qna.event.QnaCommand
 import com.example.rag.qna.event.opinion.OpinionEvent
 import com.example.rag.qna.event.question.QuestionEvent
+import com.example.rag.qna.persistence.QuestionEntity
 import com.example.rag.qna.query.QnaQuery
 import com.example.rag.web.request.OpinionRequest
 import com.example.rag.web.request.QuestionRequest
@@ -51,6 +52,10 @@ class RagController(
         @RequestParam limit: Int
     ): ResponseEntity<List<QuestionTitle>> =
         ResponseEntity.ok(qnaQuery.readQuestionTitles(category, offset, limit))
+
+    @GetMapping("/questions/{questionId}")
+    fun readQuestion(@PathVariable questionId: UUID): ResponseEntity<QuestionEntity> =
+        ResponseEntity.ok(qnaQuery.readQuestion(questionId))
 
     @PostMapping("/opinions")
     fun enrollOpinion(
