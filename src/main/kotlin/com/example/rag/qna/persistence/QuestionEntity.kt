@@ -9,7 +9,7 @@ import java.util.UUID
 class QuestionEntity(
     @Id
     @Column(name = "question_id")
-    private val id: UUID,
+    val id: UUID,
 
     @ElementCollection
     @CollectionTable(

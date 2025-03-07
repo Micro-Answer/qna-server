@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 
 @Service
-class QnaSystem(
+class QnaCommand(
     private val questionEventRepository: QuestionEventRepository,
     private val opinionEventRepository: OpinionEventRepository,
     private val applicationEventPublisher: ApplicationEventPublisher
