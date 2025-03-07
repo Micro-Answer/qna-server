@@ -3,6 +3,7 @@ package com.example.rag.web
 import com.example.rag.qna.event.QnaCommand
 import com.example.rag.qna.event.opinion.OpinionEvent
 import com.example.rag.qna.event.question.QuestionEvent
+import com.example.rag.qna.persistence.OpinionEntity
 import com.example.rag.qna.persistence.QuestionEntity
 import com.example.rag.qna.query.QnaQuery
 import com.example.rag.web.request.OpinionRequest
@@ -87,4 +88,12 @@ class RagController(
         qnaCommand.recordEvent(OpinionEvent.delete(opinionId, userId, questionId))
         return ResponseEntity.noContent().build()
     }
+
+    @GetMapping("/opinions")
+    fun readOpinions(
+        @RequestParam questionId: UUID,
+        @RequestParam offset: Int,
+        @RequestParam limit: Int
+    ): ResponseEntity<List<OpinionEntity>> =
+        ResponseEntity.ok(qnaQuery.readOpinions(questionId, offset, limit))
 }
