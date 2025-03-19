@@ -6,8 +6,10 @@ import com.example.rag.qna.persistence.QuestionEntity
 import com.example.rag.qna.persistence.QuestionRepository
 import com.example.rag.web.request.QuestionTitle
 import org.springframework.data.domain.PageRequest
+import org.springframework.stereotype.Component
 import java.util.UUID
 
+@Component
 class QnaQuery(
     private val questionRepository: QuestionRepository,
     private val opinionRepository: OpinionRepository
